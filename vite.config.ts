@@ -11,10 +11,10 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],
       manifest: {
         id: './',
-        name: '2026 World Cup Open Source Companion',
-        short_name: '2026 WC',
+        name: 'Fé Em Campo com Portas Abertas',
+        short_name: 'Fé em Campo',
         description:
-          '2026 World Cup: schedule, groups, bracket, teams, venues, weather, where to watch, win probabilities and tournament forecast, in 23 languages. Unofficial open-source PWA',
+          'Conheça quais são os países da Lista Mundial de Perseguição (LMP) 2026 que foram escalados e como você pode orar por cada um deles.',
         start_url: './',
         scope: './',
         display: 'standalone',

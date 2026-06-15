@@ -1,11 +1,11 @@
 import type { Dict } from './strings'
 
 const ptBR: Dict = {
-  appName: 'Copa 2026',
+  appName: 'Fé em Campo',
   appSub: 'Estados Unidos · Canadá · México',
-  appFullName: 'Companheiro open source da Copa 2026',
+  appFullName: 'Fé Em Campo com Portas Abertas',
   metaDesc:
-    'Copa 2026: calendário, grupos, chaveamento, seleções, estádios, clima, onde assistir, probabilidades de vitória e prognóstico do torneio, em 23 idiomas. PWA open source não oficial',
+    'Conheça quais são os países da Lista Mundial de Perseguição (LMP) 2026 que foram escalados e como você pode orar por cada um deles.',
   // nav
   navHome: 'Início',
   navMatches: 'Jogos',
