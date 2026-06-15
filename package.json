@@ -42,6 +42,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "sync-data": "node scripts/sync-upstream-data.mjs",
     "build": "tsc -b && vite build",
     "update": "bun scripts/update.mjs",
     "genmap": "bun scripts/genmap.mjs",

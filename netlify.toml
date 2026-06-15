@@ -1,0 +1,10 @@
+# Configuração de build do Netlify.
+# O comando sincroniza os dados frescos do projeto original antes de gerar o
+# site, então cada deploy (push ou agendamento) já sai com dados atualizados.
+
+[build]
+  command = "node scripts/sync-upstream-data.mjs && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
