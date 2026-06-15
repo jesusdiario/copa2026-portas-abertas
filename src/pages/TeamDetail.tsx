@@ -6,9 +6,11 @@ import { useI18n } from '../i18n'
 import { useSettings } from '../settings/SettingsContext'
 import { useAppData, useData } from '../data/DataContext'
 import { fifaSquadUrl, fifaToIso2, qualState, sortMatches } from '../utils/helpers'
+import { feProfile, FE_EM_CAMPO_URL } from '../data/feEmCampo'
 import { FifaMark, HomeMark, WikipediaMark } from '../components/BrandMarks'
 import Flag from '../components/Flag'
 import Icon from '../components/Icon'
+import PrayIcon from '../components/PrayIcon'
 import MapLinks from '../components/MapLinks'
 import MatchCard from '../components/MatchCard'
 import TeamName from '../components/TeamName'
@@ -182,6 +184,7 @@ export default function TeamDetail() {
 
   const name = pick(team.name, code)
   const fav = settings.favorites.includes(code)
+  const fe = feProfile(code)
 
   const heroStyle = {
     '--td-c1': team.colors[0] || 'var(--accent)',
@@ -248,6 +251,32 @@ export default function TeamDetail() {
           {t(fav ? 'removeFavorite' : 'addFavorite')}
         </button>
       </header>
+
+      {fe && (
+        <section className="card card-pad td-fe" id="fe-em-campo">
+          <div className="td-fe-head">
+            <PrayIcon size={22} className="td-fe-icon" />
+            <div>
+              <h2 className="td-fe-title">Fé em Campo</h2>
+              <p className="td-fe-sub small muted">
+                {fe.country} · {fe.lmpRank}º na Lista Mundial da Perseguição 2026
+              </p>
+            </div>
+          </div>
+          <div className="td-fe-person">{fe.person}</div>
+          {fe.quote && <blockquote className="td-fe-quote">“{fe.quote}”</blockquote>}
+          <p className="td-fe-text">{fe.text}</p>
+          <a
+            className="btn td-fe-cta"
+            href={FE_EM_CAMPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <PrayIcon size={17} />
+            {fe.cta}
+          </a>
+        </section>
+      )}
 
       <div className="td-cols">
         <section className="card card-pad">

@@ -238,9 +238,7 @@ table {
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  background: var(--header-blur);
+  background: var(--bg-elev); /* 100% opaco, sem transparência */
   border-bottom: 1px solid var(--border);
 }
 .shell-header-in {
@@ -276,14 +274,22 @@ table {
 }
 
 /* logo Portas Abertas (marca principal do cabeçalho) */
+.brand {
+  flex: none; /* nunca encolher: evita a logo achatada no tablet/mobile */
+}
 .pa-brand-logo {
   display: block;
-  height: 30px;
+  height: 28px;
   width: auto;
+  /* trava a proporção original (4283x585) para a imagem nunca distorcer,
+     mesmo quando o cabeçalho fica apertado no responsivo */
+  aspect-ratio: 4283 / 585;
+  flex: none;
+  object-fit: contain;
 }
 @media (max-width: 560px) {
   .pa-brand-logo {
-    height: 26px;
+    height: 24px;
   }
 }
 
