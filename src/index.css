@@ -241,6 +241,60 @@ table {
   background: var(--bg-elev); /* 100% opaco, sem transparência */
   border-bottom: 1px solid var(--border);
 }
+
+/* botão "Doar Agora" no cabeçalho */
+.donate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: #7a2e6e;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: filter 0.15s ease;
+}
+.donate-btn:hover {
+  filter: brightness(1.1);
+}
+[data-theme='dark'] .donate-btn {
+  background: #9b3f8d;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .donate-btn {
+    background: #9b3f8d;
+  }
+}
+/* no celular, mostra só o ícone para economizar espaço */
+@media (max-width: 560px) {
+  .donate-btn {
+    padding: 7px 9px;
+  }
+  .donate-btn span {
+    display: none;
+  }
+}
+
+/* marca "Fé em Campo" exibida à direita do nome dos times (grupos, jogos, etc.) */
+.team-pray {
+  display: inline-flex;
+  vertical-align: middle;
+  flex: none;
+  margin-left: 5px;
+  color: #7a2e6e;
+}
+[data-theme='dark'] .team-pray {
+  color: #cf9bc8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .team-pray {
+    color: #cf9bc8;
+  }
+}
 .shell-header-in {
   max-width: var(--page-w);
   margin: 0 auto;

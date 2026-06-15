@@ -6,7 +6,9 @@ import { useSettings } from '../settings/SettingsContext'
 import { useAppData } from '../data/DataContext'
 import { displayTz, fmtDate, fmtTime } from '../utils/time'
 import { fmtTemp, placeholderLabel, STAGE_LABEL_KEY, wmoEmoji } from '../utils/helpers'
+import { feProfile } from '../data/feEmCampo'
 import Flag from './Flag'
+import PrayIcon from './PrayIcon'
 
 interface MatchCardProps {
   match: Match
@@ -43,6 +45,11 @@ function SideRow({
         <>
           <Flag team={team} size={24} />
           <span className="nm">{pick(team.name, side?.code)}</span>
+          {feProfile(side?.code) && (
+            <span className="team-pray" title="Fé em Campo — ore por esta nação">
+              <PrayIcon size={14} />
+            </span>
+          )}
         </>
       ) : (
         <>

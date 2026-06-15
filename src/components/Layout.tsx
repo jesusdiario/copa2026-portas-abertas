@@ -169,6 +169,17 @@ export default function Layout() {
               </NavLink>
             ))}
           </nav>
+          <a
+            className="donate-btn"
+            href="https://campanha.portasabertas.org.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 21c-1-.9-8-5.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.4-7 10.1-8 11Z" />
+            </svg>
+            <span>Doar Agora</span>
+          </a>
           <LangMenu />
         </div>
       </header>
