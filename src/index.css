@@ -269,13 +269,83 @@ table {
     background: #9b3f8d;
   }
 }
-/* no celular, mostra só o ícone para economizar espaço */
+/* no celular, mostra ícone + "Doar" (oculta apenas o " Agora") */
 @media (max-width: 560px) {
   .donate-btn {
-    padding: 7px 9px;
+    padding: 7px 11px;
   }
-  .donate-btn span {
+  .donate-extra {
     display: none;
+  }
+}
+
+/* bloco "Fé em Campo" — usado na página do time e na tela da partida */
+.fe-card {
+  --fe-accent: #7a2e6e;
+  border-left: 4px solid var(--fe-accent);
+}
+[data-theme='dark'] .fe-card {
+  --fe-accent: #cf9bc8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .fe-card {
+    --fe-accent: #cf9bc8;
+  }
+}
+.fe-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.fe-icon {
+  flex: none;
+}
+.fe-title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--fe-accent);
+}
+.fe-sub {
+  margin: 2px 0 0;
+}
+.fe-person {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.fe-quote {
+  margin: 8px 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--border-strong);
+  font-style: italic;
+  color: var(--text-2);
+}
+.fe-text {
+  margin: 6px 0 14px;
+  line-height: 1.55;
+}
+/* botão roxo igual ao "Doar Agora", texto branco (a.fe-cta vence o .btn base) */
+a.fe-cta,
+a.fe-cta:hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #7a2e6e;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+a.fe-cta:hover {
+  filter: brightness(1.1);
+}
+[data-theme='dark'] a.fe-cta,
+[data-theme='dark'] a.fe-cta:hover {
+  background: #9b3f8d;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) a.fe-cta,
+  :root:not([data-theme='light']) a.fe-cta:hover {
+    background: #9b3f8d;
   }
 }
 

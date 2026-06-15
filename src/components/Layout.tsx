@@ -148,9 +148,6 @@ export default function Layout() {
     }
   }, [t])
 
-  // split the localized "by {name}" around the author link (word order varies)
-  const [byPre, byPost] = t('footerBy', { name: '\u0000' }).split('\u0000')
-
   return (
     <>
       <header className="shell-header" ref={headerRef}>
@@ -178,7 +175,9 @@ export default function Layout() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 21c-1-.9-8-5.6-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.4-7 10.1-8 11Z" />
             </svg>
-            <span>Doar Agora</span>
+            <span className="donate-label">
+              Doar<span className="donate-extra">&nbsp;Agora</span>
+            </span>
           </a>
           <LangMenu />
         </div>
@@ -191,27 +190,6 @@ export default function Layout() {
       <footer className="shell-footer">
         <div>
           <Freshness />
-        </div>
-        <div className="shell-footer-links">
-          <a href="https://github.com/26worldcup/26worldcup.github.io" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <span aria-hidden="true">·</span>
-          <span>
-            {byPre}
-            <a href="https://github.com/tomchen" target="_blank" rel="noreferrer">
-              Tom Chen
-            </a>
-            {byPost}
-          </span>
-          <span aria-hidden="true">·</span>
-          <a
-            href="https://github.com/26worldcup/26worldcup.github.io/blob/main/COPYRIGHT.md"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t('footerLicense')}
-          </a>
         </div>
       </footer>
 
