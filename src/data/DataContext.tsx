@@ -16,10 +16,25 @@ interface DataCtx {
 
 const Ctx = createContext<DataCtx | null>(null)
 
-const BASE = `${import.meta.env.BASE_URL}data/`
+// Dados ao vivo: quando VITE_DATA_BASE está definido (ex.: o projeto original),
+// buscamos os JSON direto de lá em tempo de execução — o original tem CORS
+// liberado e atualiza ~a cada 15 min durante os jogos. Combinado com o refresh
+// automático do app (~5 min), o site fica sempre sincronizado SEM rebuildar.
+// Se a busca ao vivo falhar (offline / original fora do ar), caímos para os
+// dados empacotados no build (mesma origem), preservando o funcionamento PWA.
+const LIVE_BASE = (import.meta.env.VITE_DATA_BASE as string | undefined)?.replace(/\/?$/, '/')
+const LOCAL_BASE = `${import.meta.env.BASE_URL}data/`
 
 async function getJson<T>(file: string): Promise<T> {
-  const res = await fetch(BASE + file, { cache: 'no-cache' })
+  if (LIVE_BASE) {
+    try {
+      const live = await fetch(LIVE_BASE + file, { cache: 'no-cache' })
+      if (live.ok) return (await live.json()) as T
+    } catch {
+      /* sem rede ou original indisponível — usa os dados locais abaixo */
+    }
+  }
+  const res = await fetch(LOCAL_BASE + file, { cache: 'no-cache' })
   if (!res.ok) throw new Error(`${file}: HTTP ${res.status}`)
   return res.json()
 }

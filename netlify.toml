@@ -8,3 +8,6 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # busca os dados ao vivo direto do projeto original em runtime (CORS liberado),
+  # mantendo o site sincronizado sem precisar rebuildar a cada atualização
+  VITE_DATA_BASE = "https://26worldcup.github.io/data/"
